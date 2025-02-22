@@ -53,7 +53,7 @@ export default function Hero() {
           style={{ animationDelay: "0.2s" }}
         >
           <Image
-            src="/placeholder.svg"
+            src="https://avatars.githubusercontent.com/u/101554702?s=400&u=acab19f0ecc2a4a147b8fde5739b3c88bb7294ce&v=4"
             alt="Nirmal Neupane"
             width={300}
             height={300}
