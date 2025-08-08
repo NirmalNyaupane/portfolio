@@ -151,7 +151,7 @@ const Projects = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button className="btn-hero px-8 py-3">
+          <Button className="btn-ghost text-black px-8 py-3">
             View All Projects
           </Button>
         </div>

@@ -35,6 +35,8 @@
   --border-radius-lg: var(--border-radius-lg);
   --border-radius-md: var(--border-radius-md);
   --border-radius-sm: var(--border-radius-sm);
+
+  --animated-glow: var(--animated-glow);
 }
 
 :root {
@@ -195,8 +197,8 @@
   }
 
   .skill-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--glow-primary);
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: var(--glow-primary) !important;
   }
 
   /* Professional button styles */
@@ -224,7 +226,7 @@
   .btn-ghost:hover {
     cursor: pointer;
     background: var(--color-primary) / 0.1;
-    box-shadow: var(--glow-primary);
+    box-shadow: var(--glow-primary) !important;
     border:none;
   }
 }
