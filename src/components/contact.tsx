@@ -5,11 +5,32 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useActionState } from "react";
+import sendMail from "@/app/actions";
 
 const Contact = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: leftRef, isVisible: leftVisible } = useScrollAnimation();
   const { ref: rightRef, isVisible: rightVisible } = useScrollAnimation();
+
+ 
+
+  const [error, submitAction, isPending] = useActionState(async (prevState: any, formData:FormData)=>{
+    const fname = formData.get("f_name") as string
+    const lname = formData.get("l_name") as string
+    const email = formData.get("email") as string
+    const subject = formData.get("subject") as string
+    const message = formData.get("message") as string
+
+    sendMail({
+      fname,
+      lname,
+      email,
+      subject,
+      message
+    })
+  }, null)
+
 
   return (
     <section id="contact" className="py-24 px-6 bg-background-secondary/30">
@@ -72,7 +93,7 @@ const Contact = () => {
           {/* Contact Form */}
           <Card className={`glass-card border-0 animate-slide-in-right ${rightVisible ? 'visible' : ''}`} ref={rightRef}>
             <CardContent className="p-8">
-              <form className="space-y-6">
+              <form className="space-y-6" action={submitAction}>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-foreground">
@@ -81,6 +102,9 @@ const Contact = () => {
                     <Input
                       placeholder="John"
                       className="bg-background-secondary  focus:border-primary"
+                      required
+                      name="f_name"
+                      maxLength={20}
                     />
                   </div>
                   <div className="space-y-2">
@@ -90,6 +114,9 @@ const Contact = () => {
                     <Input
                       placeholder="Doe"
                       className="bg-background-secondary focus:border-primary"
+                      required
+                      name="l_name"
+                      maxLength={20}
                     />
                   </div>
                 </div>
@@ -102,6 +129,8 @@ const Contact = () => {
                     type="email"
                     placeholder="john@example.com"
                     className="bg-background-secondary focus:border-primary"
+                    required
+                    name="email"
                   />
                 </div>
 
@@ -112,6 +141,8 @@ const Contact = () => {
                   <Input
                     placeholder="Project Discussion"
                     className="bg-background-secondary  focus:border-primary"
+                    required
+                    name="subject"
                   />
                 </div>
 
@@ -123,10 +154,12 @@ const Contact = () => {
                     placeholder="Tell me about your project..."
                     rows={5}
                     className="bg-background-secondary  focus:border-primary resize-none"
+                    required
+                    name="message"
                   />
                 </div>
 
-                <Button className="btn-hero w-full">
+                <Button className="btn-hero w-full" type="submit" disabled={isPending}>
                   <Send className="w-4 h-4 mr-2" />
                   Send Message
                 </Button>
