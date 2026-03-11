@@ -7,9 +7,24 @@ import { useScrollAnimation, useStaggeredScrollAnimation } from "@/hooks/use-scr
 
 const experiences = [
   {
+    title:"Full Stack Developer", 
+    company: "Cubit Inc.",
+    period: "May 2025 - Present",
+    location: "Kathmandu, Nepal",
+    achievements:[
+      "Designed and developed scalable and maintainable web applications using NestJS, Fastify and Express.js for backend and React.js, Next.js, and Svelte for frontend, delivering high-performance user experiences.",
+      "Designed and developed scalable and maintainable web applications using NestJS, Fastify and Express.js for backend and React.js, Next.js, and Svelte for frontend, delivering high-performance user experiences.",
+      "Collaborated in code reviews, actively participated in team discussions, and coordinated with fellow developers to ensure timely project delivery while maintaining code quality and best practices.",
+      "Integrated RESTful APIs and GraphQL endpoints, ensuring seamless communication between frontend and backend services.",
+      "Implemented automated testing and CI/CD pipelines, improving development efficiency and reducing production issues.",
+      "Implemented automated testing and CI/CD pipelines, improving development efficiency and reducing production issues."
+    ],
+    tech: ["Node.js", "PostgreSQL", "WebSocket", "Redis", "RabbitMQ", "AWS", "Kafka", "Microservice"]
+  },
+  {
     title: "Node JS Developer",
     company: "E – Signature Pvt. Ltd.",
-    period: "May 2024 – Present",
+    period: "May 2024 – May 2025",
     location: "Nepal",
     achievements: [
       "Develop multivendor ecommerce platforms with advanced features",
